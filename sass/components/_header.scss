@@ -1,0 +1,76 @@
+.header {
+    background-image:url(../img/burger-background.jpg);
+    height: 90vh;
+    text-transform: uppercase;
+    &__nav{
+        
+
+        font-size:2rem;
+        background-color: rgba($color-grey,.7);
+        ul {
+            width:100%;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            @include respond(laptop) {
+                align-items: center;
+                flex-direction: row;
+                justify-content:space-around;
+            }
+        }
+        &--item{
+            width:100vw;
+            @include respond(laptop) {
+                width:auto;
+            }
+            &:first-child {
+                margin-top:1.5rem;
+            }    
+            list-style: none;
+        }
+        &--arrow-down {
+            width:2rem;
+            height: 2rem;
+            fill:currentColor;
+            transform: translateY(25%);
+        }
+    }
+    &__title{
+        position: absolute;
+        left:50%;
+        top: 40%;
+        text-align: center;
+       transform: translate(-50%,-50%);
+       &--big{
+            
+           font-size:1.2rem;
+            border-bottom: solid .5rem $color-white;
+            border-top: solid .5rem $color-white;
+       }
+
+    }
+    &__button {
+        height: 8rem;
+        width:20rem;
+        background-color:$color-primary;
+        border:none;
+        color:$color-white;
+        font-size:3rem;
+        border-radius: 4rem;
+        position: absolute;
+        left:50%;
+       
+        top: 70%;
+        text-align: center; 
+       transform: translate(-50%,-50%);
+       transition: .5s all;
+        &:hover {
+            cursor: pointer;
+            background-color: darken($color-primary,15%);
+        }
+       &--arrow {
+        height: 2rem;
+    }
+    }
+}

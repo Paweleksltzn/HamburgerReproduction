@@ -8,6 +8,12 @@
 html {
   font-size: 50%;
   box-sizing: border-box; }
+  @media only screen and (min-width: 600px) {
+    html {
+      font-size: 60%; } }
+  @media only screen and (min-width: 1000px) {
+    html {
+      font-size: 65%; } }
 
 body {
   font-family: 'Righteous', cursive;
@@ -15,20 +21,38 @@ body {
   font-weight: 300;
   color: #fff; }
 
+.footer {
+  height: 10vh;
+  background-color: #434547;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem; }
+
 .header {
   background-image: url(../img/burger-background.jpg);
   height: 90vh;
   text-transform: uppercase; }
   .header__nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     font-size: 2rem;
     background-color: rgba(67, 69, 71, 0.7); }
+    .header__nav ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      @media only screen and (min-width: 1000px) {
+        .header__nav ul {
+          align-items: center;
+          flex-direction: row;
+          justify-content: space-around; } }
     .header__nav--item {
       width: 100vw;
       list-style: none; }
+      @media only screen and (min-width: 1000px) {
+        .header__nav--item {
+          width: auto; } }
       .header__nav--item:first-child {
         margin-top: 1.5rem; }
     .header__nav--arrow-down {
@@ -40,16 +64,15 @@ body {
     position: absolute;
     left: 50%;
     top: 40%;
-    width: 60vw;
     text-align: center;
     transform: translate(-50%, -50%); }
     .header__title--big {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       border-bottom: solid 0.5rem #fff;
       border-top: solid 0.5rem #fff; }
   .header__button {
     height: 8rem;
-    width: 60%;
+    width: 20rem;
     background-color: #ff3c1e;
     border: none;
     color: #fff;
@@ -66,3 +89,106 @@ body {
       background-color: #d11c00; }
     .header__button--arrow {
       height: 2rem; }
+
+.description__button {
+  display: flex;
+  height: 10vh;
+  background: #ff3c1e;
+  width: 20rem;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem; }
+
+.description__title {
+  text-transform: uppercase;
+  margin-top: 5rem;
+  font-size: 3rem;
+  text-align: center;
+  color: black; }
+  .description__title--star-container {
+    color: #434547;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    align-items: center;
+    grid-gap: 3rem; }
+    .description__title--star-container::after, .description__title--star-container::before {
+      content: '';
+      height: 1px;
+      width: 80%;
+      background-color: currentColor; }
+    .description__title--star-container::before {
+      justify-self: flex-end; }
+
+.description__text {
+  display: column;
+  flex-direction: row;
+  color: #434547;
+  font-size: 1.5rem;
+  text-align: justify;
+  width: 80%;
+  margin: 0 auto; }
+  .description__text--paragraph {
+    margin-bottom: 5rem; }
+
+.food {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  display: flex;
+  flex-direction: column; }
+  @media only screen and (min-width: 1000px) {
+    .food {
+      flex-direction: row; } }
+  .food__item {
+    position: relative;
+    height: 40rem;
+    overflow: hidden; }
+    @media only screen and (min-width: 1000px) {
+      .food__item {
+        width: 25%; } }
+    .food__item--names, .food__item--descriptions {
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 20rem;
+      width: 20rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden; }
+    .food__item--names {
+      color: #ff3c1e;
+      background-color: #fff;
+      font-size: 4rem;
+      cursor: pointer;
+      transition: all .5s; }
+    .food__item--descriptions {
+      background-color: #ff3c1e;
+      color: #fff;
+      transform: rotateY(180deg) translate(-50%, -50%);
+      transition: all .5s; }
+      .food__item--descriptions-header {
+        font-size: 4rem; }
+      .food__item--descriptions-text {
+        font-size: 2rem; }
+      .food__item--descriptions::hover {
+        transform: rorateY(180deg) translate(-50%, -50%); }
+    .food__item:hover .food__item--descriptions {
+      transform: rorateY(0) translate(-50%, -50%); }
+    .food__item:hover .food__item--names {
+      transform: rotateY(-180deg) translate(-50%, -50%); }
+  .food__item--burger {
+    background-image: url(../img/burger.jpg);
+    background-size: cover; }
+  .food__item--bowls {
+    background-image: url(../img/bowls.jpg);
+    background-size: cover; }
+  .food__item--salads {
+    background-image: url(../img/salad.jpg);
+    background-size: cover; }
+  .food__item--hot-dog {
+    background-image: url(../img/hot-dog.jpg);
+    background-size: cover; }

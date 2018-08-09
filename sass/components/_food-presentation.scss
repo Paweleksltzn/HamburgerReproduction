@@ -1,0 +1,78 @@
+.food {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    display:flex;
+    flex-direction: column;
+    @include respond(laptop) {
+        flex-direction: row;
+    }
+    &__item {
+        position: relative;
+        height:40rem;
+        overflow: hidden;
+        @include respond(laptop) {
+            width:25%;
+        }
+        &--names,
+        &--descriptions {
+            border-radius: 50%;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            height:20rem;
+            width:20rem;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+            backface-visibility: hidden;
+        }
+        &--names {
+            color:$color-primary;
+            background-color: $color-white;
+            font-size:4rem;
+            cursor: pointer;
+            transition:all .5s;
+        } 
+        &--descriptions {
+            background-color: $color-primary;
+            color: $color-white;
+            transform: rotateY(180deg) translate(-50%,-50%);
+            transition:all .5s;
+            &-header {
+                font-size:4rem;
+            }
+            &-text {
+                font-size:2rem;
+            }
+            &::hover {
+                transform: rorateY(180deg) translate(-50%,-50%);
+            }
+        }
+        &:hover &--descriptions {
+            transform: rorateY(0) translate(-50%,-50%);
+        }
+        &:hover &--names{
+            transform: rotateY(-180deg) translate(-50%,-50%);
+        }
+
+    }
+
+    &__item--burger {
+        background-image: url(../img/burger.jpg);
+        background-size: cover;
+    }
+    &__item--bowls {
+        background-image: url(../img/bowls.jpg);
+        background-size: cover;
+    }
+    &__item--salads {
+        background-image: url(../img/salad.jpg);
+        background-size: cover;
+    }
+    &__item--hot-dog {
+        background-image: url(../img/hot-dog.jpg);
+        background-size: cover;
+    }
+}

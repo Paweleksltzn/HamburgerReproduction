@@ -1,0 +1,48 @@
+.description {
+    &__button {
+        display:flex;
+        height:10vh;
+        background:$color-primary;
+        width:20rem;
+        margin:0 auto;
+        justify-content: center;
+        align-items: center;
+        font-size:3rem;
+    }
+    &__title {
+        text-transform: uppercase;
+        margin-top:5rem;
+        font-size:3rem;
+        text-align: center;
+        color:black;
+        &--star-container {
+            color:$color-grey;
+            display: grid;
+            grid-template-columns: 1fr max-content 1fr;
+            align-items: center;
+            grid-gap: 3rem;
+                &::after,
+                &::before {
+                    content: '';
+                    height: 1px;
+                    width:80%;
+                    background-color:currentColor;
+                }
+                &::before{
+                    justify-self: flex-end;
+                }
+        }
+    }
+    &__text {
+        display:column;
+        flex-direction: row;
+        color:$color-grey;
+        font-size:1.5rem;
+        text-align: justify;
+        width:80%;
+        margin:0 auto;
+    &--paragraph {
+        margin-bottom: 5rem;
+    }
+    }
+}
